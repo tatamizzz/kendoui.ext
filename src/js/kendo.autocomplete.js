@@ -315,7 +315,7 @@ kendo_module({
             } else if (length >= that.options.minLength) {
                 that._open = true;
 
-                // wrap with old filter @ash
+                // wrap with old filter @hacked by ash
                 if (typeof options.filter == 'string') {
                     that._filterSource({
                         value: ignoreCase ? word.toLowerCase() : word,
@@ -325,7 +325,7 @@ kendo_module({
                     });
                 }
 
-                // support function @ash
+                // support function @hacked by ash
                 if (jQuery.isFunction(options.filter)) {
                     var customFilter = options.filter(word, that);
                     that.dataSource.filter(customFilter);
