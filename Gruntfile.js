@@ -218,27 +218,28 @@ module.exports = function(grunt) {
             });
 
             // compiled = compiled.replace( /\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+/,"");
-compiled = compiled.replace( /kendo_module\([^})]+\}\);/g , "");
+
+            compiled = compiled.replace( /kendo_module\([^})]+\}\);/g , "");
 
 
-// Embed Version
-// Embed Date
-compiled = compiled.replace( /@VERSION/g, version )
-.replace( "@DATE", function () {
-    // YYYY-MM-DD
-    return ( new Date() ).toISOString().replace( /T.*/, "" );
-});
+            // Embed Version
+            // Embed Date
+            compiled = compiled.replace( /@VERSION/g, version )
+            .replace( "@DATE", function () {
+                // YYYY-MM-DD
+                return ( new Date() ).toISOString().replace( /T.*/, "" );
+            });
 
-// Write concatenated source to file
-grunt.file.write( name, compiled );
+            // Write concatenated source to file
+            grunt.file.write( name, compiled );
 
-// Fail task if errors were logged.
-if ( this.errorCount ) {
-    return false;
-}
+            // Fail task if errors were logged.
+            if ( this.errorCount ) {
+                return false;
+            }
 
-// Otherwise, print a success message.
-grunt.log.writeln( "File '" + name + "' created." );
+            // Otherwise, print a success message.
+            grunt.log.writeln( "File '" + name + "' created." );
         });
 
 

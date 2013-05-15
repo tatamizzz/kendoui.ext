@@ -7,6 +7,7 @@
     "grunt-git-authors": "*",
     "grunt-update-submodules": "*",
     "grunt-contrib-watch": "*",
+    "grunt-contrib-clean": "*",
     "grunt-contrib-concat": "*",
     "grunt-contrib-jshint": "*",
     "grunt-contrib-uglify": "*"
