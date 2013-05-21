@@ -96,9 +96,13 @@ kendo_module({
 
             that._popup();
 
+            // ff,360中文输入无法触发keydown事件,增加input.autocomplete事件 by @ash
             element
                 .addClass("k-input")
                 .on("keydown" + ns, proxy(that._keydown, that))
+                .on("input.autocomplete" + ns, function(){
+                    that._search();
+                })
                 .on("paste" + ns, proxy(that._search, that))
                 .on("focus" + ns, function () {
                     that._prev = that._accessor();
@@ -462,8 +466,6 @@ kendo_module({
                     e.preventDefault();
                 }
                 that.close();
-            } else {
-                that._search();
             }
         },
 
